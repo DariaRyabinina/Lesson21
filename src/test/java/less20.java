@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -29,11 +30,11 @@ public class less20 {
         webDriver = new ChromeDriver();
     }
 
-    /*  @AfterMethod
+     @AfterMethod
       public void closeDriver() {
           webDriver.close();
       }
-  */
+
     @Test
     public void Test1() {
         webDriver.get("https://idemo.bspb.ru/");
