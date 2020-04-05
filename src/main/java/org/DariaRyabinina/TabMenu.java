@@ -1,16 +1,23 @@
 package org.DariaRyabinina;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class TabMenu {
-    private final WebDriver webDriver;
+    PageFactory pageFactory;
 
     public TabMenu(WebDriver webDriver) {
-        this.webDriver = webDriver;
+        PageFactory.initElements(webDriver, this);
+
     }
 
-    public void clickButtonId(String id) {
-        webDriver.findElement(By.id(id)).click();
+    @FindBy(id = "bank-overview")
+    WebElement code;
+
+    public void clickButtonId() {
+        code.click();
+        ;
     }
 }

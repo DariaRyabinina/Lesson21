@@ -16,6 +16,7 @@
         <webdrivermanager.version>3.8.1</webdrivermanager.version>
         <selenium-java.version>3.141.59</selenium-java.version>
         <slf4j-log4j12.version>1.7.30</slf4j-log4j12.version>
+        <browsermob-core.version>2.1.5</browsermob-core.version>
     </properties>
 
     <dependencies>

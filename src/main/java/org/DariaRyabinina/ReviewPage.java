@@ -1,33 +1,25 @@
 package org.DariaRyabinina;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
 public class ReviewPage {
 
-    private WebDriver webDriver;
 
     public ReviewPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
+       PageFactory.initElements(webDriver, this);
     }
 
-    public WebElement webColumnMoney() {
-        return webDriver.findElement(By.xpath("//span[@class='amount-holder']/span[@class='amount']"));
-
-    }
-
-    public WebElement webColumnMyMoney() {
-        return webDriver.findElement(By.xpath("//small[@class='my-assets']"));
-
-    }
-
-    public WebElement financialfreedom(int i) {
-        return webDriver.findElement(By.xpath("//@id[.='can-spend'][1]/following::span[" + i + "]"));
-    }
-
-    public WebElement nameReview(int i) {
-        return webDriver.findElement(By.xpath("//@id[.='header-container']/following::h1[" + i + "]"));
-    }
+    @FindBy(xpath = "//@id[.='header-container']/following::h1[1]")
+    public WebElement nameReview;
+    @FindBy(xpath = "//span[@class='amount-holder']/span[@class='amount']")
+    public WebElement webColumnMoney;
+    @FindBy(xpath = "//@id[.='can-spend'][1]/following::span[1]")
+    public WebElement financialfreedom;
+    @FindBy(xpath = "//small[@class='my-assets']")
+    public WebElement webColumnMyMoney;
 
 }
