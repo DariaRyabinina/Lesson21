@@ -31,9 +31,9 @@ public class less21 {
     }
 
     @AfterMethod
-       public void closeDriver() {
-           webDriver.close();
-       }
+    public void closeDriver() {
+        webDriver.close();
+    }
 
     @Test
     public void Test1() {
@@ -48,9 +48,7 @@ public class less21 {
                 .clickButtonId();
 
         ReviewPage reviewPage = new ReviewPage(webDriver);
-       WebDriverWait webDriverWait = new WebDriverWait(webDriver, 60);
-        //webDriverWait.until(ExpectedConditions.visibilityOf(reviewPage.nameReview));
-
+        WebDriverWait webDriverWait = new WebDriverWait(webDriver, 60);
         webDriverWait.ignoring(StaleElementReferenceException.class)
                 .until(ExpectedConditions.visibilityOf(reviewPage.nameReview));
 
@@ -62,7 +60,6 @@ public class less21 {
         webDriverWait.until(ExpectedConditions.visibilityOf(reviewPage.webColumnMoney));
 
 
-
         String sumMoney = reviewPage.webColumnMoney.getText().trim();
         LOGG.info(sumMoney);
         boolean mach = sumMoney.matches("\\d{0,3}\\s\\d{0,3}\\s\\d{0,3}\\.\\d{2}\\s.");
@@ -72,7 +69,6 @@ public class less21 {
         action.moveToElement(reviewPage.webColumnMoney).build().perform();
 
         webDriverWait.until(ExpectedConditions.visibilityOf(reviewPage.webColumnMyMoney));
-
 
 
         String myMoney = reviewPage.webColumnMyMoney.getText();
