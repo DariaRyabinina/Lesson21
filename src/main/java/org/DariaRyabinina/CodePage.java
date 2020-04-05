@@ -1,7 +1,5 @@
 package org.DariaRyabinina;
 
-
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,7 +11,7 @@ public class CodePage {
     @FindBy(id = "otp-code")
     WebElement addCode;
     @FindBy(id = "login-otp-button")
-    WebElement entrButtonCode;
+    WebElement enterButtonCode;
 
     public CodePage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -27,7 +25,7 @@ public class CodePage {
     }
 
     public TabMenu clickEntrButton() {
-        entrButtonCode.click();
+        enterButtonCode.click();
         return new TabMenu(webDriver);
     }
 }

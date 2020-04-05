@@ -1,8 +1,6 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.DariaRyabinina.CodePage;
 import org.DariaRyabinina.LoginPage;
 import org.DariaRyabinina.ReviewPage;
-import org.DariaRyabinina.TabMenu;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -16,9 +14,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
-public class less20 {
+public class less21 {
     private WebDriver webDriver;
-    public static final Logger LOGG = LoggerFactory.getLogger(less20.class);
+    public static final Logger LOGG = LoggerFactory.getLogger(less21.class);
 
     @BeforeClass
     public void downloadDriverManager() {

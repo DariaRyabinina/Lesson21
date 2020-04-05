@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage  {
+public class LoginPage {
     private final WebDriver webDriver;
     PageFactory pageFactory;
 
@@ -16,10 +16,6 @@ public class LoginPage  {
     private WebElement passFiled;
     @FindBy(id = "login-button")
     private WebElement enterButtonLogin;
-
-    // private final By loginFiled = By.name("username");
-    // private final By passFiled = By.name("password");
-    //  private final By enterButtonLogin = By.id("login-button");
 
     public LoginPage(WebDriver webDriver) {
         this.webDriver = webDriver;

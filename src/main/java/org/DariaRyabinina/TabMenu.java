@@ -18,6 +18,5 @@ public class TabMenu {
 
     public void clickButtonId() {
         code.click();
-        ;
     }
 }
