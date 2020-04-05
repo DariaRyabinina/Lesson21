@@ -60,9 +60,10 @@ public class less21 {
         boolean mach = sumMoney.matches("\\d{0,3}\\s\\d{0,3}\\s\\d{0,3}\\.\\d{2}\\s.");
         Assert.assertTrue(mach);
 
-
         Actions action = new Actions(webDriver);
         action.moveToElement(reviewPage.webColumnMoney).build().perform();
+
+        webDriverWait.until(ExpectedConditions.visibilityOf(reviewPage.webColumnMyMoney));
 
         String myMoney = reviewPage.webColumnMyMoney.getText();
         myMoney = myMoney.replaceAll("[^(а-яёА-ЯЁ), ]", "").trim();
