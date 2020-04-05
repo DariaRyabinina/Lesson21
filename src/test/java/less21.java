@@ -1,6 +1,7 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.DariaRyabinina.LoginPage;
 import org.DariaRyabinina.ReviewPage;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -28,11 +30,11 @@ public class less21 {
         webDriver = new ChromeDriver();
     }
 
-    /*  @AfterMethod
+    @AfterMethod
        public void closeDriver() {
            webDriver.close();
        }
- */
+
     @Test
     public void Test1() {
         webDriver.get("https://idemo.bspb.ru/");
@@ -46,14 +48,20 @@ public class less21 {
                 .clickButtonId();
 
         ReviewPage reviewPage = new ReviewPage(webDriver);
-        WebDriverWait webDriverWait = new WebDriverWait(webDriver, 60);
-        webDriverWait.until(ExpectedConditions.visibilityOf(reviewPage.nameReview));
+       WebDriverWait webDriverWait = new WebDriverWait(webDriver, 60);
+        //webDriverWait.until(ExpectedConditions.visibilityOf(reviewPage.nameReview));
+
+        webDriverWait.ignoring(StaleElementReferenceException.class)
+                .until(ExpectedConditions.visibilityOf(reviewPage.nameReview));
+
         String nameReview1 = reviewPage.nameReview.getText();
         nameReview1 = nameReview1.replaceAll("[^(а-яёА-ЯЁ)]", "");
         Assert.assertEquals(nameReview1, "Обзор");
         Assert.assertEquals(reviewPage.financialfreedom.getText(), "Финансовая свобода");
 
         webDriverWait.until(ExpectedConditions.visibilityOf(reviewPage.webColumnMoney));
+
+
 
         String sumMoney = reviewPage.webColumnMoney.getText().trim();
         LOGG.info(sumMoney);
@@ -64,6 +72,8 @@ public class less21 {
         action.moveToElement(reviewPage.webColumnMoney).build().perform();
 
         webDriverWait.until(ExpectedConditions.visibilityOf(reviewPage.webColumnMyMoney));
+
+
 
         String myMoney = reviewPage.webColumnMyMoney.getText();
         myMoney = myMoney.replaceAll("[^(а-яёА-ЯЁ), ]", "").trim();
