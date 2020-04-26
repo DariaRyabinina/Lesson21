@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ReviewPage {
 
-
     public ReviewPage(WebDriver webDriver) {
        PageFactory.initElements(webDriver, this);
     }

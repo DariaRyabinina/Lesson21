@@ -7,7 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CodePage {
     private WebDriver webDriver;
-    PageFactory pageFactory;
     @FindBy(id = "otp-code")
     WebElement addCode;
     @FindBy(id = "login-otp-button")

@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class TabMenu {
-    PageFactory pageFactory;
 
     public TabMenu(WebDriver webDriver) {
         PageFactory.initElements(webDriver, this);
